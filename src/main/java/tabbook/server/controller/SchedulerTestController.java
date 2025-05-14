@@ -19,4 +19,10 @@ public class SchedulerTestController {
     public String runScheduler() {
         return scheduledTask.apply("manual-test");
     }
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "hello";
+    }
+    
 }
