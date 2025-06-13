@@ -15,6 +15,6 @@ public interface SubscriptionRepository extends JpaRepository<Subscription, Long
 
     Optional<Subscription> findByEmail(String email);
 
-    @Query("SELECT s FROM Subscription s WHERE s.nextPaymentDate = :tomorrow")
+    @Query("SELECT s FROM Subscription s WHERE s.nextPaymentDate = :tomorrow AND s.isActive = true")
     List<Subscription> findSubscriptionsDueForPayment(@Param("tomorrow") LocalDate targetDate);
 }

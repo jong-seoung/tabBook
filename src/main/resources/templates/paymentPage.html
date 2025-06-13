@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>구독 유형 선택</title>
   <style>
     html, body {
@@ -132,17 +132,14 @@
       box-sizing: border-box;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
-
     input:focus {
       border-color: #1473e6;
       box-shadow: 0 0 0 3px rgba(20, 115, 230, 0.2);
       outline: none;
     }
-
     input[readonly] {
       background-color: #f9f9f9;
     }
-
     footer {
       background: #f9f9f9;
       text-align: center;
@@ -167,29 +164,28 @@
     <div class="wrapper">
       <!-- Left Side -->
       <div class="left">
-        <div style="font-size: 14px; color: #666; margin-bottom: 10px;">단계 1 / 2</div>
+        <div style="font-size: 14px; color: #666; margin-bottom: 10px;">단계 1 / 3</div>
         <h1>구독 유형을 선택하세요.</h1>
         <p class="desc">Tab Book 유료 플랜 가입</p>
 
         <div class="notice">
-          고마운 마음 담아, 작은 비용으로 큰 편리함을 드립니다.<br>
-          매달 커피 한 잔보다 저렴하게, 프리미엄 기능을 경험해 보세요.<br>
+          고마운 마음 담아, 작은 비용으로 큰 편리함을 드립니다.<br />
+          매달 저렴한 가격으로 프리미엄 기능을 경험해 보세요.<br />
         </div>
 
         <div class="options">
-          <div class="option-card selected" data-plan="month" data-price="2000" data-read="2,000">
+          <div class="option-card selected" data-plan="month" data-price="1100" data-read="1,100">
             <h2>월별 청구</h2>
-            <p class="sale">2,000원/월</p>
-            <p class="small">(2,000원/월)</p>
+            <p class="sale">1,100원/월</p>
+            <p class="small">(1,100원/월)</p>
             <p class="small">결제 후 5일 환불 가능</p>
           </div>
 
-          <div class="option-card" data-plan="year" data-price="20000" data-read="20,000">
+          <div class="option-card" data-plan="year" data-price="12000" data-read="12,000">
             <h2>연간 청구</h2>
-            <p class="price">24,000원/년</p>
-            <p class="sale">20,000원/년</p>
-            <p class="small">(20,000원/년)</p>
-            <p class="small">세일 제품으로 환불 불가능</p>
+            <p class="sale">12,000원/년</p>
+            <p class="small">(12,000원/년)</p>
+            <p class="small">1개월 요금 할인!<br />세일 제품으로 환불 불가능</p>
           </div>
         </div>
 
@@ -200,30 +196,47 @@
       <div class="right">
         <h3>유료 플랜에 추가되는 확장 서비스</h3>
         <ul class="service-list">
-          <li><b>📌 카테고리 갯수 제한</b><span style="color: gray;">3개  ➩  제한 없음</span></li><br>
-          <li><b>📌 URL 갯수 제한</b><span style="color: gray;">7개  →  제한 없음</span></li><br>
-          <li><b>📌 모든 탭 열기</b><span style="color: gray;">"기본" 카테고리에만 제한  →  모든 카테고리</span></li>
+          <li><b>📌 카테고리 갯수 제한</b><span style="color: gray;">3개  ➩  제한 없음</span></li><br />
+          <li><b>📌 URL 갯수 제한</b><span style="color: gray;">7개  ➩  제한 없음</span></li><br />
+          <li><b>📌 모든 탭 열기</b><span style="color: gray;">"기본" 카테고리에만 제한  ➩  모든 카테고리</span></li>
         </ul>
       </div>
     </div>
 
     <!-- 단계 2 -->
-    <div id="step2" style="display: none; max-width: 600px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-      <div style="font-size: 14px; color: #666; margin-bottom: 10px;">단계 2 / 2</div>
+    <div
+      id="step2"
+      style="
+        display: none;
+        max-width: 600px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      "
+    >
+      <div style="font-size: 14px; color: #666; margin-bottom: 10px;">단계 2 / 3</div>
       <h1>결제 정보를 입력하세요</h1>
       <p class="desc">이름, 이메일, 전화번호를 입력해주세요.</p>
 
       <div style="margin: 20px 0;">
         <!-- 선택된 구독 정보 미리 표시 -->
-        <input type="text" id="selectedPlan" placeholder="구독 유형" readonly>
+        <input type="text" id="selectedPlan" placeholder="구독 유형" readonly />
         <input type="email" id="buyerEmail" th:value="${email}" readonly />
         <input type="uid" id="buyerUid" th:value="${uid}" hidden />
         <!-- 사용자 정보 입력란 -->
-        <input type="text" id="buyerName" placeholder="이름">
-        <input type="tel" id="buyerTel" placeholder="전화번호">
+        <input type="text" id="buyerName" placeholder="이름" />
+        <input type="tel" id="buyerTel" placeholder="전화번호" />
       </div>
 
-      <button class="btn" id="payNowBtn">카드로 결제하기</button>
+      <div style="justify-content: center; display: flex; gap: 20px;">
+        <button class="btn" id="backBtn" style="background-color: #aaa; margin-top: 10px;">
+        이전
+        </button>
+        <button class="btn" id="payNowBtn" style="margin-top: 10px;">다음</button>
+      </div>
+
     </div>
   </main>
 
@@ -233,7 +246,6 @@
   </footer>
 
   <script th:inline="javascript">
-    
     var IMP = window.IMP;
     const IMP_ID = [[${IMP_ID}]];
     const channelKey = [[${channelKey}]];
@@ -243,12 +255,13 @@
     document.getElementById("nextBtn").addEventListener("click", function () {
       document.querySelector(".wrapper").style.display = "none";
       document.getElementById("step2").style.display = "block";
-      
-      var selectedCard = document.querySelector(".option-card.selected");
-      var selectPlan = selectedCard.getAttribute('data-plan');
-      var amount = selectedCard.getAttribute('data-read');
 
-      document.getElementById("selectedPlan").value = (selectPlan == "month" ? "월별 청구" : "연간 청구") + " - " + amount + "원";
+      var selectedCard = document.querySelector(".option-card.selected");
+      var selectPlan = selectedCard.getAttribute("data-plan");
+      var amount = selectedCard.getAttribute("data-read");
+
+      document.getElementById("selectedPlan").value =
+        (selectPlan == "month" ? "월별 청구" : "연간 청구") + " - " + amount + "원";
     });
 
     document.querySelectorAll(".option-card").forEach(function (card) {
@@ -262,15 +275,14 @@
 
     document.getElementById("payNowBtn").addEventListener("click", function () {
       var selectedCard = document.querySelector(".option-card.selected");
-      var plan = selectedCard.getAttribute('data-plan');
-      var amount = selectedCard.getAttribute('data-price');
+      var plan = selectedCard.getAttribute("data-plan");
+      var amount = selectedCard.getAttribute("data-price");
 
       var plan = document.getElementById("selectedPlan").value;
       var name = document.getElementById("buyerName").value;
       var email = document.getElementById("buyerEmail").value;
       var tel = document.getElementById("buyerTel").value;
       var uid = document.getElementById("buyerUid").value;
-
 
       if (!name || !email || !tel) {
         alert("모든 정보를 입력해주세요.");
@@ -283,22 +295,21 @@
           pay_method: "card",
           merchant_uid: "order_" + uid + "_" + new Date().getTime(),
           name: plan,
-          amount: amount, 
+          amount: amount,
           buyer_email: email,
           customer_uid: uid,
           buyer_name: name,
-          buyer_tel: tel
+          buyer_tel: tel,
         },
         function (rsp) {
           if (rsp.success) {
-            fetch(redirectUrl+"subscriptions", {
+            fetch(redirectUrl + "subscriptions", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify(rsp)
-            })
-            .then(response => {
+              body: JSON.stringify(rsp),
+            }).then((response) => {
               if (response.ok) {
                 alert("결제가 완료 되었습니다.");
                 window.close();
@@ -311,6 +322,41 @@
           }
         }
       );
+    });
+
+    // 뒤로 가기 버튼 클릭 시 새로고침
+    document.getElementById("backBtn").addEventListener("click", function () {
+      location.reload();
+    });
+
+    // 각 구독 카드에 다음 결제일 추가
+    document.querySelectorAll(".option-card").forEach((card) => {
+      const plan = card.dataset.plan;
+      const today = new Date();
+      const nextPaymentDate = new Date(today);
+
+      // 월별은 1개월 뒤, 연간은 1년 뒤
+      if (plan === "month") {
+        nextPaymentDate.setMonth(nextPaymentDate.getMonth() + 1);
+      } else if (plan === "year") {
+        nextPaymentDate.setFullYear(nextPaymentDate.getFullYear() + 1);
+      }
+      nextPaymentDate.setDate(nextPaymentDate.getDate() - 1);
+
+      const formattedDate = `${nextPaymentDate.getFullYear()}년 ${
+        nextPaymentDate.getMonth() + 1
+      }월 ${nextPaymentDate.getDate()}일`;
+
+      const p = document.createElement("p");
+      p.className = "small";
+      p.textContent = `다음 결제일: ${formattedDate}`;
+
+      const existing = Array.from(card.querySelectorAll("p.small")).find((p) =>
+        p.textContent.includes("다음 결제일")
+      );
+      if (existing) existing.remove();
+
+      card.appendChild(p);
     });
   </script>
 </body>

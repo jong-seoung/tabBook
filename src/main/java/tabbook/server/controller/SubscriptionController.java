@@ -52,12 +52,14 @@ public class SubscriptionController {
         return "index";
     }
 
+    @GetMapping("/hello")
+    public String hello() {
+        return "index";
+    }
+
     @GetMapping("/status")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> getSubscriptionStatus(@RequestParam String email) {
-        System.out.println(email);
-
-        // 구독 정보가 없을 경우 404 Not Found 응답을 반환
+    public ResponseEntity<Map<String, Object>> getSubscriptionStatus(@RequestParam("email") String email) {
         Optional<Subscription> optionalSubscription = subscriptionRepository.findByEmail(email);
         Map<String, Object> response = new HashMap<>();
         if (optionalSubscription.isEmpty()) {
